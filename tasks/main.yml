@@ -20,10 +20,16 @@
 # The regular expression extracts '9.0' out of '9.0.*'
 - name: Install pip
   # community.general.easy_install:
-  apt: pkg={{ item }} state=present
-  become: True
-  with_items:
-    - python-pip
+#  apt: pkg={{ item }} state=present
+#  become: True
+#  with_items:
+#    - python-pip
+  apt: 
+    become: True
+    name: 
+      - python-pip
+    state: present
+    
 #  command: "{{ ansible_python_interpreter if ansible_python_interpreter is defined else 'python' }} get-pip.py pip=={{ pip_version }}"
 ##  command: "{{ ansible_python_interpreter if ansible_python_interpreter is defined else 'python' }} get-pip.py"
 #  when: "(pip_version_output is failed) or not pip_version_output.stdout is search('pip ' + pip_version)"

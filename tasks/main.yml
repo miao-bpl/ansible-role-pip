@@ -25,7 +25,6 @@
 #  with_items:
 #    - python-pip
   apt: 
-    become: True
     name: 
       - python-pip
     state: present
